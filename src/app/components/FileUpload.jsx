@@ -48,7 +48,7 @@ export default function FileUpload() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       <input
         type="file"
         name="pdf"
@@ -64,36 +64,36 @@ export default function FileUpload() {
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onClick={handleBrowseClick}
-          className="border-3 border-dashed border-gray-300 rounded-2xl p-12 text-center cursor-pointer transition-all duration-300 hover:border-blue-400 hover:bg-blue-50 group"
+          className="border-2 border-dashed border-gray-300 rounded-lg sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center cursor-pointer transition-all duration-300 hover:border-blue-400 hover:bg-blue-50 group"
         >
-          <Upload size={48} className="mx-auto text-gray-400 group-hover:text-blue-500 mb-4" />
-          <h3 className="text-xl font-semibold text-gray-700 mb-2">
+          <Upload size={32} className="mx-auto text-gray-400 group-hover:text-blue-500 mb-3 sm:mb-4 w-8 h-8 sm:w-12 sm:h-12" />
+          <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-700 mb-2">
             Drop your CV here or click to browse
           </h3>
-          <p className="text-gray-500">Supports PDF files only (Maximum 5MB)</p>
+          <p className="text-xs sm:text-sm md:text-base text-gray-500 mb-4 sm:mb-6">Supports PDF files only (Maximum 5MB)</p>
           <button
             type="button"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg mt-6"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg text-sm sm:text-base"
           >
             Browse Files
           </button>
         </div>
       ) : (
-        <div className="border-2 border-blue-200 bg-blue-50 rounded-2xl p-6 animate-slide-in">
+        <div className="border-2 border-blue-200 bg-blue-50 rounded-lg sm:rounded-2xl p-4 sm:p-6 animate-slide-in">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <FileText size={32} className="text-blue-600" />
+            <div className="flex items-center gap-3 sm:gap-4">
+              <FileText size={24} className="text-blue-600 w-6 h-6 sm:w-8 sm:h-8" />
               <div>
-                <div className="font-semibold text-blue-800">{file.name}</div>
-                <div className="text-sm text-blue-600">{formatFileSize(file.size)}</div>
+                <div className="font-semibold text-blue-800 text-sm sm:text-base">{file.name}</div>
+                <div className="text-xs sm:text-sm text-blue-600">{formatFileSize(file.size)}</div>
               </div>
             </div>
             <button
               type="button"
               onClick={removeFile}
-              className="p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors"
+              className="p-1 sm:p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors"
             >
-              <X size={20} />
+              <X size={16} className="sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
