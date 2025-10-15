@@ -17,7 +17,7 @@ export async function sendAdminEmail(formData, file) {
   <head>
     <meta charset="utf-8">
     <style>
-      body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #0f766e; max-width: 600px; margin: 0 auto; padding: 0; background: #f0fdfa; }
+      body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #0f766e; margin: 0; padding: 0; background: #f0fdfa; }
       .container { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin: 20px; }
       .header { background: linear-gradient(135deg, #0f766e 0%, #115e59 100%); color: white; padding: 30px; text-align: center; }
       .logo { font-size: 28px; font-weight: bold; margin-bottom: 10px; color: white; }
@@ -31,14 +31,14 @@ export async function sendAdminEmail(formData, file) {
     <div class="container">
       <div class="header">
         <div class="logo">Savacy Technologies</div>
-        <h1>📬 New CV Received</h1>
+        <h1> New CV Received</h1>
       </div>
       
       <div class="content">
         <div class="urgent">⚡ NEW APPLICATION - REVIEW REQUIRED</div>
         
         <div class="section">
-          <h3>👤 Candidate Information</h3>
+          <h3> Candidate Information</h3>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
@@ -46,15 +46,15 @@ export async function sendAdminEmail(formData, file) {
         </div>
 
         <div class="section">
-          <h3>💼 Position Details</h3>
+          <h3> Position Details</h3>
           <p><strong>Job Title:</strong> ${jobTitle}</p>
           <p><strong>Application Type:</strong> ${subject || 'General Application'}</p>
           <p><strong>Experience:</strong> ${experience || 'Not specified'}</p>
           <p><strong>Education:</strong> ${education || 'Not specified'}</p>
         </div>
 
-        ${skills ? `<div class="section"><h3>🛠️ Skills</h3><p>${skills}</p></div>` : ''}
-        ${coverLetter ? `<div class="section"><h3>📝 Cover Letter</h3><p>${coverLetter}</p></div>` : ''}
+        ${skills ? `<div class="section"><h3> Skills</h3><p>${skills}</p></div>` : ''}
+        ${coverLetter ? `<div class="section"><h3> Cover Letter</h3><p>${coverLetter}</p></div>` : ''}
 
         <div class="section">
           <h3>📎 Attachment</h3>
@@ -75,7 +75,7 @@ export async function sendAdminEmail(formData, file) {
     from: `"Savacy Careers" <${process.env.EMAIL_USER}>`,
     to: process.env.EMAIL_USER,
     replyTo: email,
-    subject: `📬 New CV: ${name} - ${jobTitle}`,
+    subject: ` New CV: ${name} - ${jobTitle}`,
     html: adminEmailHtml,
     attachments: [{
       filename: `CV_${name.replace(/\s+/g, '_')}.pdf`,
@@ -93,7 +93,7 @@ export async function sendAutoReply(formData) {
   <head>
     <meta charset="utf-8">
     <style>
-      body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #0f766e; max-width: 600px; margin: 0 auto; padding: 0; background: #f0fdfa; }
+      body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #0f766e; margin: 0; padding: 0; background: #f0fdfa; }
       .container { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin: 20px; }
       .header { background: linear-gradient(135deg, #0f766e 0%, #115e59 100%); color: white; padding: 30px; text-align: center; }
       .logo { font-size: 28px; font-weight: bold; margin-bottom: 10px; color: white; }
@@ -106,27 +106,27 @@ export async function sendAutoReply(formData) {
     <div class="container">
       <div class="header">
         <div class="logo">Savacy Technologies</div>
-        <h1>✅ Application Received</h1>
+        <h1> Application Received</h1>
       </div>
       
       <div class="content">
         <div class="message">
           <h2>Thank You, ${name}!</h2>
           <p>We have successfully received your application for the <strong>${jobTitle}</strong> position at <strong>Savacy Technologies</strong>.</p>
-          <p>Our recruitment team will review your CV and contact you within 3-5 business days.</p>
+          <p>Our recruitment team will carefully review your qualifications and experience. You can expect to hear back from us within 3-5 business days as we process your application through our screening procedure.</p>
           <p style="background: white; padding: 12px; border-radius: 8px; margin: 15px 0; border: 1px solid #d1fae5;">
             <strong>Application ID:</strong> ST${Date.now().toString().slice(-6)}
           </p>
         </div>
         
         <div style="text-align: center; margin-top: 25px;">
-          <h3 style="color: #0f766e;">What's Next?</h3>
-          <ul style="text-align: left; display: inline-block; color: #374151;">
-            <li>📋 CV review by our recruitment team</li>
-            <li>📞 Initial screening call if shortlisted</li>
-            <li>💻 Technical interview process</li>
-            <li>✅ Final decision within 1-2 weeks</li>
-          </ul>
+          <h3 style="color: #0f766e; margin-bottom: 15px;">Our Recruitment Process</h3>
+          <p style="color: #374151; line-height: 1.8; max-width: 500px; margin: 0 auto;">
+            Our hiring process begins with a thorough review of your application by our recruitment team. 
+            If your profile matches our requirements, we will contact you for an initial screening conversation 
+            to learn more about your background and career aspirations. Successful candidates will then proceed 
+            to technical interviews with our team members, followed by a final decision typically within 1-2 weeks.
+          </p>
         </div>
 
         <div style="background: #fef3c7; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center;">
@@ -150,7 +150,7 @@ export async function sendAutoReply(formData) {
   await transporter.sendMail({
     from: `"Savacy Technologies" <${process.env.EMAIL_USER}>`,
     to: email,
-    subject: `✅ Application Received - Savacy Technologies`,
+    subject: ` Application Received - Savacy Technologies`,
     html: autoReplyHtml
   })
 }

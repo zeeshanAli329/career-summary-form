@@ -66,7 +66,6 @@ export default function CareerForm() {
           <p className="text-sm sm:text-base md:text-xl text-white/90 px-2">Submit your CV and help us shape the future of technology</p>
         </div>
 
-        {/* Main Form Card */}
         <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-gray-100 p-4 sm:p-6 md:p-8 backdrop-blur-sm bg-opacity-95 mx-2">
           <ProgressSteps 
             sections={sections} 
@@ -77,7 +76,6 @@ export default function CareerForm() {
             e.preventDefault()
             handleSubmit(new FormData(e.target))
           }}>
-            {/* Section 1: Personal Information */}
             <FormSection isActive={currentSection === 1}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
                 <div>
@@ -147,7 +145,6 @@ export default function CareerForm() {
               </div>
             </FormSection>
 
-            {/* Section 2: Professional Information */}
             <FormSection isActive={currentSection === 2}>
               <div className="space-y-4 sm:space-y-6">
                 <div>
@@ -239,7 +236,6 @@ export default function CareerForm() {
               </div>
             </FormSection>
 
-            {/* Section 3: CV Upload */}
             <FormSection isActive={currentSection === 3}>
               <FileUpload />
 
@@ -273,7 +269,6 @@ export default function CareerForm() {
             </FormSection>
           </form>
 
-          {/* Message Display */}
           {message.text && (
             <div className={`mt-4 sm:mt-6 p-3 sm:p-4 rounded-lg sm:rounded-xl text-center text-sm sm:text-base ${
               message.type === 'success' 
