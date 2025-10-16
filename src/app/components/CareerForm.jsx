@@ -38,7 +38,7 @@ export default function CareerForm() {
 
       if (data.success) {
         setMessage({ type: 'success', text: data.message })
-        // Reset form
+        
         document.getElementById('career-form').reset()
         setCurrentSection(1)
       } else {
